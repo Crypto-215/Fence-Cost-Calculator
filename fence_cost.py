@@ -1,5 +1,5 @@
 # Author: Caleb
-# Date: 12/11/2025
+# Date: 14/11/2025
 # Version 1
 
 # Calculate the cost of fencing using data given
@@ -43,10 +43,9 @@ ovrl_cost = perimeter * cost_meter
 print(f"\nThe perimeter is {perimeter}m")
 print(f"The cost of your fencing is ${ovrl_cost}. \nHave a nice day!")'''
 
-# Allows code to loop so that user can use it multiple times (v3)
+# Allows code to loop so that user can use it multiple times (v3.1)
 
 def fen_len_cos(question, min): # Create function
-    error = "Whoops, that's not a number above 0!"
 
     while True:
         try:
@@ -56,22 +55,25 @@ def fen_len_cos(question, min): # Create function
                 break # ...stop the loop
 
             else:
-                print(f"{error}")
+                print(f"Please enter a number above 0...")
 
         except ValueError:
-            print(f"{error}")
+            print("Please enter a number...")
     return response # This makes the response available to be used
 
-name = input("Hello! What is your name? ")
+
+# Greet the user by asking for their name
+name = input("Hello! What is your name? ") # Outside of loop so that question is not asked when user wants to repeat the calculator
 print(f"Hey {name}! ")
 
 keep_going = ""
 while keep_going == "": # Allows section of program to loop when required
 
-    width = fen_len_cos("\nEnter the width of your fence: ",0)
-    length = fen_len_cos("Enter the length of your fence: ",0)
-    cost_meter = fen_len_cos("Enter the cost of your fence per meter: ",0)
+    width = fen_len_cos("\nEnter the width of your fence (m): ",0)
+    length = fen_len_cos("\nEnter the length of your fence (m): ",0)
+    cost_meter = fen_len_cos("\nEnter the cost of your fence per meter: ",0)
 
+    # Calculates the perimeter and overall cost
     perimeter = 2 * (width + length)
     ovrl_cost = perimeter * cost_meter
 
@@ -82,4 +84,5 @@ while keep_going == "": # Allows section of program to loop when required
     # Loops the code or stops it entirely
     keep_going = input("\nPress <ENTER> to do the calculator again, or any other key to quit. ")
 
-print(f"\nHave a nice day!")
+# When wants to end program, "goodbye" message
+print(f"\nThank you for using the calculator. Have a nice day!")
