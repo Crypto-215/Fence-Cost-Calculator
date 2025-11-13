@@ -1,5 +1,5 @@
 # Author: Caleb
-# Date: 7/11/2025
+# Date: 12/11/2025
 # Version 1
 
 # Calculate the cost of fencing using data given
@@ -62,18 +62,21 @@ def fen_len_cos(question, min): # Create function
             print(f"{error}")
     return response # This makes the response available to be used
 
+name = input("Hello! What is your name? ")
+print(f"Hey {name}! ")
+
 keep_going = ""
 while keep_going == "": # Allows section of program to loop when required
 
-    width = fen_len_cos("Enter the width of your fence: ",0)
+    width = fen_len_cos("\nEnter the width of your fence: ",0)
     length = fen_len_cos("Enter the length of your fence: ",0)
-    cost_meter = fen_len_cos("Enter the cost of your fence /m: ",0)
+    cost_meter = fen_len_cos("Enter the cost of your fence per meter: ",0)
 
     perimeter = 2 * (width + length)
     ovrl_cost = perimeter * cost_meter
 
     # Displays perimeter and cost
-    print(f"\nThe perimeter is {perimeter}m")
+    print(f"\nThe perimeter of your fence is {perimeter}m")
     print(f"The cost of your fencing is ${ovrl_cost}.")
 
     # Loops the code or stops it entirely
